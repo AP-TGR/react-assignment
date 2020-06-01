@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../actions';
+import { listUser } from '../../actions';
 
 class UserList extends React.Component {
     componentDidMount() {
-        this.props.fetchUsers();
+        this.props.listUser();
     }
 
     renderList() {
@@ -13,7 +13,11 @@ class UserList extends React.Component {
                 <tr key={user.id}>
                     <td data-label="Name">{ user.first_name + ' ' +user.last_name }</td>
                     <td data-label="Email">{ user.email }</td>
-                    <td data-label="Action"><i className="plus square icon"></i></td>
+                    <td data-label="Action">
+                        <i className="plus square icon"></i>
+                        <i className="edit icon"></i>
+                        <i className="trash icon"></i>
+                    </td>
                 </tr>
             );
         });
@@ -40,10 +44,10 @@ class UserList extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return { users: state.users }
+    return { users: Object.values(state.users) };
 };
 
-export default connect (
+export default connect(
     mapStateToProps,
-    { fetchUsers }
+    { listUser }
 )(UserList);
