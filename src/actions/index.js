@@ -8,6 +8,7 @@ import {
     SHOW_USER,
     DELETE_USER
 } from './types';
+import history from '../history';
 
 export const login = formValues => dispatch => {
     const response = reqRes.post('/login');
@@ -25,6 +26,7 @@ export const createUser = formValues => async dispatch => {
     const response = await reqRes.post('/users');
 
     dispatch({ type: CREATE_USER, payload: response.data });
+    history.push('/');
 };
 
 export const editUser = (id, formValues) => async dispatch => {
@@ -46,7 +48,7 @@ export const listUser = () => async dispatch => {
 };
 
 export const showUser = id => async dispatch => {
-    const response = await reqRes.post(`/users/${id}`);
+    const response = await reqRes.get(`/users/${id}`);
 
-    dispatch({ type: SHOW_USER, payload: response.data });
+    dispatch({ type: SHOW_USER, payload: response.data.data });
 };

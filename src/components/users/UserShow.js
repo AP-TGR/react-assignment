@@ -1,9 +1,11 @@
 import React from 'react';
 
-const UserShow = () => {
-    return (
-        <div>UserShow</div>
-    );
-};
+class UserShow extends React.Component {
+    render() {
+        return (
+            <div>USER SHOW</div>
+        );
+    }
+}
 
 export default UserShow;

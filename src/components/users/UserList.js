@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { listUser } from '../../actions';
 
@@ -14,9 +15,8 @@ class UserList extends React.Component {
                     <td data-label="Name">{ user.first_name + ' ' +user.last_name }</td>
                     <td data-label="Email">{ user.email }</td>
                     <td data-label="Action">
-                        <i className="plus square icon"></i>
-                        <i className="edit icon"></i>
-                        <i className="trash icon"></i>
+                        <Link to={`user/edit/${user.id}`}><i className="edit icon"></i></Link>
+                        <Link to={`user/delete/${user.id}`}><i className="trash icon"></i></Link>
                     </td>
                 </tr>
             );
