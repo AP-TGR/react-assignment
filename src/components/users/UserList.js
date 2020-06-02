@@ -12,7 +12,7 @@ class UserList extends React.Component {
         return this.props.users.map(user => {
             return (
                 <tr key={user.id}>
-                    <td data-label="Name">{ user.first_name + ' ' +user.last_name }</td>
+                    <td data-label="Name">{ user.name }</td>
                     <td data-label="Email">{ user.email }</td>
                     <td data-label="Action">
                         <Link to={`user/edit/${user.id}`}><i className="edit icon"></i></Link>

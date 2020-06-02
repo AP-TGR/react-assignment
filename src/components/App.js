@@ -19,7 +19,7 @@ const App = () => {
                     <Route path="/"  exact component={ UserList }/>
                     <Route path="/user/new"  exact component={ UserCreate }/>
                     <Route path="/user/edit/:id"  exact component={ UserEdit }/>
-                    <Route path="/user/delete"  exact component={ UserDelete }/>
+                    <Route path="/user/delete/:id"  exact component={ UserDelete }/>
                     <Route path="/user/show"  exact component={ UserShow }/>
                 </div>
             </Router>
